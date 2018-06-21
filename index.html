@@ -15,7 +15,7 @@
     <div class="container">
         <h1 align="center">Zerion Form Builder</h1>
 
-        <div ng-controller="AccessTokenController as accessTokenVm" style="position: relative; top: 10px;">
+        <accessController ng-controller="AccessTokenController as accessTokenVm" style="position: relative; top: 10px;">
             <div>
                 <button ng-click="accessTokenVm.toggle()">Click here</button> to request Access Token!
             </div>
@@ -42,11 +42,11 @@
                     <button type="submit" class="btn btn-primary" ng-click="accessTokenVm.getAccessToken();" ng-disabled="userForm.$invalid">Submit</button>
                 </form>
 
-                <p>Your Access Token is : {{accessTokenVm.accessToken}}</p>
-                <h4>{{accessTokenVm.error}}</h4>
+                <access-token ng-show="accessTokenVm.accessToken">Your Access Token is : {{accessTokenVm.accessToken}}</access-token>
+                <h4 ng-show="accessTokenVm.error">{{accessTokenVm.error}}</h4>
             </div>
 
-        </div>
+        </accessController>
 
         <div class="menu-bar" style="position: absolute; top: 60px; right: 40px;">
             <ul class="nav nav-pills">
@@ -79,6 +79,7 @@
     <script src="controller/NewDocumentController.js"></script>
     <script src="service/formbuilder.service.js"></script>
     <script src="service/datashare.service.js"></script>
+    <script src="directives/accessToken.directive.js"></script>
 </body>
 
 </html>

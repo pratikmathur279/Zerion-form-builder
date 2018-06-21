@@ -30,12 +30,12 @@
         }
 
         function deleteDocuments() {
-            console.log('DeleteDocuments()' + listViewVm.deleteID);
             angular.forEach(listViewVm.deleteID, function (value) {
                 console.log(value);
                 formBuilderService.deleteDocument(listViewVm.token, value)
                     .then(function (response) {
                         console.log(response);
+                        listViewVm.refresh();
                     })
                     .catch(function (error) {
                         console.log(error);

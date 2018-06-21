@@ -1,6 +1,5 @@
-/*
 (function () {
-        'use strict';*/
+    'use strict';
     angular
         .module('app')
         .controller('AccessTokenController', AccessTokenController);
@@ -10,26 +9,27 @@
     function AccessTokenController(formBuilderService, DataShare) {
 
         var accessTokenVm = this;
+        accessTokenVm.visibility = false;
 
         accessTokenVm.myVar = false;
 
         accessTokenVm.toggle = function () {
-            //console.log("toggle");
             accessTokenVm.myVar = !accessTokenVm.myVar;
         };
 
-
-        init();
 
         accessTokenVm.getAccessToken = getAccessToken;
         //accessTokenVm.setToken = DataShare.setToken;
 
         function getAccessToken() {
+            accessTokenVm.error = false;
+            accessTokenVm.visibility = false;
             formBuilderService.getAccessToken(accessTokenVm.newUser)
                 .then(function (data) {
                     //console.log(data);
                     accessTokenVm.accessToken = data.accessToken;
                     DataShare.setToken(accessTokenVm.accessToken);
+                    accessTokenVm.visibility = !accessTokenVm.visibility;
 
                 })
                 .catch(function (error) {
@@ -39,9 +39,5 @@
         }
 
 
-        function init() {
-
-        }
     }
-/*
-})();*/
+})();
