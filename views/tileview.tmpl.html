@@ -1,0 +1,14 @@
+<button ng-click="tileViewVm.refresh()">Refresh</button>
+
+<!--
+<img src="https://opensource.google.com/assets/static/images/home/blog/blog_image_1.jpg" />-->
+
+<h4>{{tileViewVm.error}}</h4>
+<div class="row">
+    <div class="bg-info mx-3" ng-repeat="docs in tileViewVm.documents" style="background-color:darkgrey; align-content: center; padding: 25px; top: 5px">
+        <img ng-src="{{docs.imgs[0].url}}" style="height: 200px; width: auto;" />
+        <p>{{docs.name}}</p>
+        <p>{{docs.description}}</p>
+        &nbsp;
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 50px;
+    grid-column-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.menu-bar {}

@@ -1,0 +1,20 @@
+<h2>Document Detail</h2>
+
+<form name="docForm" ng-submit="docForm.$setPristine(); newDocumentVm.createDocument()" novalidate>
+    <div class="form-group ">
+        <label for="Name ">Name</label>
+        <input ng-model="newDocumentVm.newDoc.name " name="name " type="text " class="form-control " id="name " placeholder="Name " required minlength="4 ">
+    </div>
+
+    <div class="form-group ">
+        <label for="Description ">Description</label>
+        <input ng-model="newDocumentVm.newDoc.description " type="text " name="description " class="form-control " id="description " placeholder="Description " required minlength="4 ">
+    </div>
+
+    <div class="form-group ">
+        <label for="Image URLs ">Image URLs</label>
+        <input ng-model="newDocumentVm.newDoc.imgURL " type="text " name="imgURL " class="form-control " id="imgURL " placeholder="Enter Image URL " required>
+    </div>
+
+    <button type="submit " class="btn btn-primary " ng-disabled="docForm.$invalid ">Submit</button>
+</form>

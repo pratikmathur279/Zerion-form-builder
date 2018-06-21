@@ -1,0 +1,84 @@
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script rel="stylesheet" href="style.css"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js">
+</script>-->
+</head>
+
+<body>
+    <div class="container">
+        <h1 align="center">Zerion Form Builder</h1>
+
+        <div ng-controller="AccessTokenController as accessTokenVm" style="position: relative; top: 10px;">
+            <div>
+                <button ng-click="accessTokenVm.toggle()">Click here</button> to request Access Token!
+            </div>
+            &nbsp;
+            <div ng-show="accessTokenVm.myVar">
+                <form name="userForm" ng-submit="userForm.$setPristine();" novalidate>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input ng-model="accessTokenVm.newUser.firstName" name="firstName" type="text" class="form-control" id="firstName" placeholder="Enter First Name" required minlength="4">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input ng-model="accessTokenVm.newUser.lastName" type="text" name="lastName" class="form-control" id="lastName" placeholder="Enter Last Name" required minlength="4">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input ng-model="accessTokenVm.newUser.username" type="text" name="Username" class="form-control" id="Username" placeholder="Enter Username here" required minlength="4">
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" ng-click="accessTokenVm.getAccessToken();" ng-disabled="userForm.$invalid">Submit</button>
+                </form>
+
+                <p>Your Access Token is : {{accessTokenVm.accessToken}}</p>
+                <h4>{{accessTokenVm.error}}</h4>
+            </div>
+
+        </div>
+
+        <div class="menu-bar" style="position: absolute; top: 60px; right: 40px;">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#!tile-view"><span class="glyphicon glyphicon-th"></span> Tile View</a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link active" href="#!list-view"><span class="glyphicon glyphicon-list"></span> List View</a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link active" href="#!new-document"><span class="glyphicon glyphicon-plus"></span> New Document</a>
+                </li>
+            </ul>
+        </div>
+        <h3 style="padding: 5px">Documents</h3>
+    </div>
+
+    <section class="container" style="position: absolute; left: 100px" ; ng-view />
+
+
+    <script src="https://code.angularjs.org/1.6.6/angular.min.js "></script>
+    <script src="https://code.angularjs.org/1.6.6/angular-route.min.js "></script>
+    <script src="https://code.angularjs.org/1.6.6/angular-messages.min.js"></script>
+    <script src="angular.module.js"></script>
+    <script src="controller/AccessTokenController.js"></script>
+    <script src="controller/ListViewController.js"></script>
+    <script src="controller/TileViewController.js"></script>
+    <script src="controller/NewDocumentController.js"></script>
+    <script src="service/formbuilder.service.js"></script>
+    <script src="service/datashare.service.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<button ng-click="listViewVm.refresh()">Refresh</button>
+<h4>{{listViewVm.error}}</h4>
+<form name="listForm" ng-submit="listViewVm.deleteDocuments()">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <!--<th>ID</th>-->
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image URLs</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="docs in listViewVm.documents">
+                <td>
+                    <input type="checkbox" id="{{docs._id}}" ng-click="listViewVm.deleteIDs(docs._id)" /></td>
+                <!--<td>{{docs._id}}</td>-->
+                <td>{{docs.name}}</td>
+                <td>{{docs.description}}</td>
+                <td>{{docs.imgs[0].url}}</td>
+                <td>
+                    <button ng-click="listViewVm.updateDoc(docs._id)">Update</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Delete</button>
+
+</form>
